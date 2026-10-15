@@ -14,7 +14,7 @@ export function watchlistView({ store, refresh }) {
     try {
       const target = String(f.get('target') ?? '').trim();
       const current = String(f.get('current') ?? '').trim();
-      items.push({
+      store.addWatch({
         id: crypto.randomUUID(),
         name: name.slice(0, 100),
         target: target ? parseSwedishNumber(target) : null,
@@ -22,14 +22,13 @@ export function watchlistView({ store, refresh }) {
         note: String(f.get('note') ?? '').trim().slice(0, 500),
         added: new Date().toISOString().slice(0, 10),
       });
-      store.saveWatchlist(items);
       refresh();
     } catch (err) {
       alert(err.message);
     }
   };
 
-  const remove = (id) => { store.saveWatchlist(items.filter((i) => i.id !== id)); refresh(); };
+  const remove = (id) => { store.removeWatch(id); refresh(); };
 
   return h('section', {},
     h('h2', {}, 'Bevakning'),

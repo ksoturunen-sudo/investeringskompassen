@@ -6,7 +6,7 @@
   "description": "Webbapp (PWA) för att följa aktier och fonder – import från Avanza",
   "scripts": {
     "test": "node tests/run-node.mjs",
-    "start": "python3 -m http.server 8080"
+    "start": "python3 tools/devserver.py 8080"
   },
   "engines": { "node": ">=20" }
 }

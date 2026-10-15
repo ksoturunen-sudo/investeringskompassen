@@ -1,5 +1,25 @@
 # Projektlogg – Investeringskompassen
 
+## 2026-10-15 – Kurser, synk, analys och utveckling
+
+**Användarens beslut**
+- Kurskälla: **EODHD** (officiell; gratisnivå 20 anrop/dag, 1 års historik; annars ca 20 USD/mån). Källa: eodhd.com/pricing, okt 2026. Täckning av svenska fonder ej verifierad – testas med användarens innehav.
+- Databas: befintligt Supabase-projekt (Stockholm) – användaren bekräftade att det inte används. Det innehåller gamla quiz-tabeller som lämnas orörda; våra tabeller prefixas `ik_`.
+- Inloggning: **Google** + **egen lösenfras** (totalsträckskryptering).
+
+**Gjort**
+- Nya sidor: Utveckling (graf över tid + jämförelse mot valfritt index), Analys (fördelning per typ/region, målfördelning), Inställningar (konto, synk, kurser, index, backup), Mer-meny på mobil.
+- Utdelningsprognos 12 månader. Backup till/från fil.
+- Lagringen omgjord till en ögonblicksbild (snapshot) med automatisk flytt från gamla formatet. **Ett fel hittades och rättades före publicering**: flytten sparade inte nya formatet direkt, så data kunde försvinna vid andra start. Täcks nu av test.
+- Supabase: tabeller med RLS, kurstjänst (Edge Function `quotes`) driftsatt. Säkerhetsgranskning (Supabase advisors) utan anmärkningar för våra tabeller.
+- 21 automatiska tester, alla godkända.
+
+**Väntar på användaren**
+- Skapa Google-inloggning (Google Cloud) och koppla in i Supabase.
+- Ange adresser för inloggning i Supabase.
+- Skapa EODHD-konto och lägga in nyckeln i Supabase.
+- Meddela sin Google-adress så att den läggs in i `ik_allowed_users`.
+
 ## 2026-10-15 – GitHub och publicering
 
 **Gjort**
@@ -29,6 +49,4 @@
 - Enligt forumet Rika tillsammans har Avanza tagit bort kontonummer ur exporten – kontrollera vad "Konto"-kolumnen innehåller.
 
 **Nästa steg (förslag)**
-1. Automatiska kurser: liten server-del enligt `contracts/price-provider.md` – kräver val av kursleverantör.
-2. Synk mellan mobil och dator (kräver inloggning och lagring i molnet).
-3. Fler funktioner: utveckling över tid (graf), jämförelse mot index, skatteunderlag, larm vid målkurs.
+1. Fler funktioner: skatteunderlag (K4 för depå), larm vid målkurs (push-notiser).

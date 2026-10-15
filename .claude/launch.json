@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "app", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8080", "--bind", "127.0.0.1"], "port": 8080 }
+    { "name": "app", "runtimeExecutable": "python3", "runtimeArgs": ["tools/devserver.py", "8080"], "port": 8080 }
   ]
 }

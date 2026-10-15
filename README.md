@@ -9,7 +9,7 @@ Webbapp för att följa aktier och fonder, med import av transaktioner från Ava
 ## Starta lokalt
 
 ```bash
-python3 -m http.server 8080 --bind 127.0.0.1
+python3 tools/devserver.py 8080
 ```
 
 Öppna http://localhost:8080. Tester: http://localhost:8080/tests/run.html eller `npm test`.
