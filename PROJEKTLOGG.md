@@ -1,5 +1,14 @@
 # Projektlogg – Investeringskompassen
 
+## 2026-10-15 – GitHub och publicering
+
+**Gjort**
+- Offentligt repo: https://github.com/ksoturunen-sudo/investeringskompassen (användarens val – gratis GitHub Pages kräver offentligt repo; ingen personlig data finns i koden, egna .csv-filer stoppas av .gitignore).
+- Appen publicerad med GitHub Pages: https://ksoturunen-sudo.github.io/investeringskompassen/ – testad i mobilstorlek.
+- GitHub CLI 2.102.0 installerad i ~/.local/bin (kontrollsumma verifierad), inloggning via engångskod.
+- CI: tester + hemlighetsskanning (gitleaks), actions låsta till exakta commit-SHA, Dependabot för uppdateringar. Secret scanning och push protection påslaget i repot.
+- Första CI-körningen: testerna godkända; hemlighetsskanningen fallerade enbart för att första pushen innehöll rot-commit (känd begränsning i gitleaks-action). Löst från och med nästa push.
+
 ## 2026-10-15 – Grundversion
 
 **Gjort**
@@ -20,8 +29,6 @@
 - Enligt forumet Rika tillsammans har Avanza tagit bort kontonummer ur exporten – kontrollera vad "Konto"-kolumnen innehåller.
 
 **Nästa steg (förslag)**
-1. GitHub: skapa privat repo `investeringskompassen` på kontot ksoturunen-sudo och skicka upp koden (kräver inloggning av användaren).
-2. Publicering så att appen kan öppnas i mobilen (t.ex. GitHub Pages eller Cloudflare Pages).
-3. Automatiska kurser: liten server-del enligt `contracts/price-provider.md` – kräver val av kursleverantör.
-4. Synk mellan mobil och dator (kräver inloggning och lagring i molnet).
-5. Fler funktioner: utveckling över tid (graf), jämförelse mot index, skatteunderlag, larm vid målkurs.
+1. Automatiska kurser: liten server-del enligt `contracts/price-provider.md` – kräver val av kursleverantör.
+2. Synk mellan mobil och dator (kräver inloggning och lagring i molnet).
+3. Fler funktioner: utveckling över tid (graf), jämförelse mot index, skatteunderlag, larm vid målkurs.

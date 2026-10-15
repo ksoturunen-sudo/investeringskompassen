@@ -4,6 +4,8 @@ Webbapp för att följa aktier och fonder, med import av transaktioner från Ava
 
 **Funktioner:** översikt med nyckeltal och fördelning, innehav med GAV och avkastning, transaktionshistorik med sök, utdelningar per år/månad, bevakningslista med målkurs, import av Avanza-fil, fungerar i mobil och dator och kan installeras på hemskärmen.
 
+**Öppna appen:** https://ksoturunen-sudo.github.io/investeringskompassen/
+
 ## Starta lokalt
 
 ```bash
