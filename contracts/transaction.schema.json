@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://investeringskompassen.local/contracts/transaction.schema.json",
+  "title": "Transaction",
+  "description": "Normaliserad transaktion. Alla importörer ska leverera detta format. Implementeras av src/core/transaction.js (validateTransaction).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "date", "account", "type", "rawType", "name", "isin", "quantity", "price", "amount", "fee", "currency", "fxRate", "result", "source"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1, "description": "Stabilt id; samma källrad ger samma id" },
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "account": { "type": "string" },
+    "type": { "enum": ["buy", "sell", "dividend", "interest", "fee", "tax", "deposit", "withdrawal", "other"] },
+    "rawType": { "type": "string", "description": "Bankens egen benämning" },
+    "name": { "type": "string" },
+    "isin": { "type": "string", "description": "Tom sträng om saknas" },
+    "quantity": { "type": "number", "minimum": 0 },
+    "price": { "type": "number", "description": "Kurs i instrumentets valuta" },
+    "amount": { "type": "number", "description": "Belopp i SEK; negativt = pengar ut från kontot" },
+    "fee": { "type": "number", "minimum": 0, "description": "Courtage i SEK" },
+    "currency": { "type": "string" },
+    "fxRate": { "type": "number", "exclusiveMinimum": 0, "description": "Växelkurs till SEK, 1 för SEK" },
+    "result": { "type": ["number", "null"], "description": "Bankens realiserade resultat vid sälj" },
+    "source": { "type": "string", "description": "Importör, t.ex. avanza-csv" }
+  }
+}

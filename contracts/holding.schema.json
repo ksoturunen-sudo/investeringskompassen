@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://investeringskompassen.local/contracts/holding.schema.json",
+  "title": "Holding",
+  "description": "Beräknat innehav. Produceras av src/core/portfolio.js (computeHoldings). Alla belopp i SEK.",
+  "type": "object",
+  "required": ["key", "name", "isin", "currency", "accounts", "quantity", "costBasis", "avgCost", "price", "priceSource", "priceDate", "marketValue", "unrealized", "unrealizedPct", "realized", "dividends"],
+  "properties": {
+    "key": { "type": "string", "description": "ISIN, annars NAMN:<namn>" },
+    "name": { "type": "string" },
+    "isin": { "type": "string" },
+    "currency": { "type": "string" },
+    "accounts": { "type": "array", "items": { "type": "string" } },
+    "quantity": { "type": "number", "minimum": 0 },
+    "costBasis": { "type": "number", "description": "Anskaffningsvärde (genomsnittsmetoden)" },
+    "avgCost": { "type": "number", "description": "GAV per andel" },
+    "price": { "type": "number" },
+    "priceSource": { "enum": ["manual", "provider", "last-trade"] },
+    "priceDate": { "type": "string" },
+    "marketValue": { "type": "number" },
+    "unrealized": { "type": "number" },
+    "unrealizedPct": { "type": "number" },
+    "realized": { "type": "number" },
+    "dividends": { "type": "number" }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Investeringskompassen",
+  "short_name": "Kompassen",
+  "description": "Håll koll på dina aktier och fonder",
+  "lang": "sv",
+  "start_url": "./#overview",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [{ "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

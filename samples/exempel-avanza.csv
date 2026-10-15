@@ -1,0 +1,17 @@
+Datum;Konto;Typ av transaktion;Värdepapper/beskrivning;Antal;Kurs;Belopp;Transaktionsvaluta;Courtage;Valutakurs;Instrumentvaluta;ISIN;Resultat
+2026-09-30;ISK Exempel;Köp;Global Indexfond Exempel;12,5;320,40;-4005,00;SEK;0;;SEK;SE0000000005;-
+2026-09-15;ISK Exempel;Utdelning;Exempelbolaget B;40;3,00;120,00;SEK;0;;SEK;SE0000000001;-
+2026-08-20;ISK Exempel;Sälj;Teknikbolaget A;-10;1050,00;10450,00;SEK;50,00;;SEK;SE0000000002;3830,50
+2026-06-12;KF Exempel;Köp;Amerikanskt Bolag Inc;15;180,00;-28623,00;SEK;30,00;10,59;USD;US0000000003;-
+2026-05-08;ISK Exempel;Utdelning;Teknikbolaget A;30;8,50;255,00;SEK;0;;SEK;SE0000000002;-
+2026-04-28;ISK Exempel;Utdelning;Exempelbolaget B;40;3,00;120,00;SEK;0;;SEK;SE0000000001;-
+2026-03-03;ISK Exempel;Köp;Global Indexfond Exempel;40;290,10;-11604,00;SEK;0;;SEK;SE0000000005;-
+2026-01-10;ISK Exempel;Insättning;Insättning;;;50000,00;SEK;;;SEK;;-
+2025-11-14;ISK Exempel;Utdelning;Exempelbolaget B;40;2,75;110,00;SEK;0;;SEK;SE0000000001;-
+2025-09-02;ISK Exempel;Köp;Teknikbolaget A;10;780,00;-7839,00;SEK;39,00;;SEK;SE0000000002;-
+2025-05-09;ISK Exempel;Utdelning;Teknikbolaget A;30;7,00;210,00;SEK;0;;SEK;SE0000000002;-
+2025-04-25;ISK Exempel;Utdelning;Exempelbolaget B;40;2,75;110,00;SEK;0;;SEK;SE0000000001;-
+2025-02-18;ISK Exempel;Köp;Exempelbolaget B;40;210,00;-8439,00;SEK;39,00;;SEK;SE0000000001;-
+2024-10-01;ISK Exempel;Köp;Teknikbolaget A;30;620,00;-18639,00;SEK;39,00;;SEK;SE0000000002;-
+2024-09-20;ISK Exempel;Köp;Räntefond Exempel;100;101,20;-10120,00;SEK;0;;SEK;SE0000000004;-
+2024-09-19;ISK Exempel;Insättning;Insättning;;;60000,00;SEK;;;SEK;;-

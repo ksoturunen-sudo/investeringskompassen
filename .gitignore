@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+*.log
+.env
+.env.*
+# Egna exportfiler från Avanza ska aldrig in i Git
+*.csv
+!samples/exempel-avanza.csv

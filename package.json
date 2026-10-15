@@ -1,0 +1,12 @@
+{
+  "name": "investeringskompassen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Webbapp (PWA) för att följa aktier och fonder – import från Avanza",
+  "scripts": {
+    "test": "node tests/run-node.mjs",
+    "start": "python3 -m http.server 8080"
+  },
+  "engines": { "node": ">=20" }
+}
