@@ -4,7 +4,7 @@
 
 **Gjort**
 - Offentligt repo: https://github.com/ksoturunen-sudo/investeringskompassen (användarens val – gratis GitHub Pages kräver offentligt repo; ingen personlig data finns i koden, egna .csv-filer stoppas av .gitignore).
-- Appen publicerad med GitHub Pages: https://ksoturunen-sudo.github.io/investeringskompassen/ – testad i mobilstorlek.
+- Appen publicerad med GitHub Pages: https://ksoturunen-sudo.github.io/investeringskompassen/ – testad i mobilstorlek och installerad på hemskärmen i användarens mobil (bekräftat av användaren).
 - GitHub CLI 2.102.0 installerad i ~/.local/bin (kontrollsumma verifierad), inloggning via engångskod.
 - CI: tester + hemlighetsskanning (gitleaks), actions låsta till exakta commit-SHA, Dependabot för uppdateringar. Secret scanning och push protection påslaget i repot.
 - Första CI-körningen: testerna godkända; hemlighetsskanningen fallerade enbart för att första pushen innehöll rot-commit (känd begränsning i gitleaks-action). Löst från och med nästa push.
