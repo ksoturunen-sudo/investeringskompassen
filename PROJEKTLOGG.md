@@ -24,5 +24,4 @@
 2. Publicering så att appen kan öppnas i mobilen (t.ex. GitHub Pages eller Cloudflare Pages).
 3. Automatiska kurser: liten server-del enligt `contracts/price-provider.md` – kräver val av kursleverantör.
 4. Synk mellan mobil och dator (kräver inloggning och lagring i molnet).
-5. Lås GitHub Actions till exakta versioner (commit-SHA) när repot finns.
-6. Fler funktioner: utveckling över tid (graf), jämförelse mot index, skatteunderlag, larm vid målkurs.
+5. Fler funktioner: utveckling över tid (graf), jämförelse mot index, skatteunderlag, larm vid målkurs.
