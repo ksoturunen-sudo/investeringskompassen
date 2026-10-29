@@ -1,5 +1,20 @@
 # Projektlogg – Investeringskompassen
 
+## 2026-10-29 – Inloggning, synk och kurser i drift
+
+**Gjort**
+- Användaren har kopplat in Google-inloggning och EODHD-nyckel. `kso.turunen@gmail.com` tillagd i `ik_allowed_users`.
+- Bekräftat av användaren: inloggning och synk fungerar. Kontrollerat i databasen: ett krypterat valv finns (version 3).
+- Kurskällan hittade alla 20 värdepapper som slagits upp (7 svenska aktier, 6 fonder via EODHD:s fondlista, 5 amerikanska, 1 dansk, 1 notering i Frankfurt). **Svenska fonder finns alltså hos EODHD.**
+- Första dagen gick hela kvoten (20 anrop) åt till att slå upp värdepappren; kurser hämtas från och med nästa dag (minst 23 anrop behövs → två dagar).
+- Supabase-databasen svarade långsamt efter två veckors vila (tillfälligt).
+- Användaren lät Chrome föreslå lösenfrasen; den ligger i Googles lösenordshanterare.
+
+**Att följa upp**
+- Kontrollera i morgon att kurser och kurshistorik kommit in (`ik_prices`) och att fonder ger kurser på gratisnivån.
+- En aktie matchades mot Frankfurt (EUR) i stället för hemmabörsen – kontrollera om kursen stämmer.
+- Överväg att stänga av nya registreringar i Supabase Auth (behörighetslistan skyddar redan, men det minskar ytan ytterligare).
+
 ## 2026-10-15 – Kurser, synk, analys och utveckling
 
 **Användarens beslut**
