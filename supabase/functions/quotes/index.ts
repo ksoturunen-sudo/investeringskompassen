@@ -2,6 +2,7 @@
 // Kontrakt: contracts/price-provider.md. Hämtar dagskurser från EODHD, cachar dem i databasen
 // och räknar om till SEK. API-nyckeln (EODHD_API_KEY) finns bara här, aldrig i appen.
 import { createClient } from 'npm:@supabase/supabase-js@2.117.2';
+import { pickListing } from './listing.js';
 
 const ALLOWED_ORIGINS = ['https://ksoturunen-sudo.github.io', 'http://localhost:8080', 'http://127.0.0.1:8080'];
 const EODHD = 'https://eodhd.com/api';
@@ -49,9 +50,8 @@ async function resolveIsin(isin: string): Promise<Inst> {
   const stale = data && !data.symbol && Date.parse(data.looked_up_at) < Date.now() - NOT_FOUND_RETRY_DAYS * 86400000;
   if (data && !stale) return data;
   const hits = (await eodhd(`search/${isin}`, { limit: '10' })) ?? [];
-  const list = Array.isArray(hits) ? hits.filter((h) => !h.ISIN || h.ISIN === isin) : [];
-  // Föredra svensk notering, sedan primärnotering, sedan första träffen.
-  const pick = list.find((h) => h.Exchange === 'ST') ?? list.find((h) => h.isPrimary) ?? list[0];
+  // Hemmabörsen enligt ISIN-landskoden föredras; se listing.js.
+  const pick = pickListing(isin, hits);
   const row: Inst = pick
     ? { isin, symbol: `${pick.Code}.${pick.Exchange}`, name: pick.Name ?? null, type: pick.Type ?? null, currency: pick.Currency ?? null }
     : { isin, symbol: null, name: null, type: null, currency: null };

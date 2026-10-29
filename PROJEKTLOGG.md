@@ -1,5 +1,22 @@
 # Projektlogg – Investeringskompassen
 
+## 2026-10-29 (kväll) – Rätt börs för varje värdepapper
+
+**Läget för kurserna**
+- Kontrollerat i databasen kl. 21:20: **inga kurser är hämtade ännu**, varken för aktier, fonder eller valutor. Dagens 20 anrop gick åt till uppslagen. Det är väntat – kurserna hämtas första gången appen öppnas i morgon (30/10).
+- Efter rättelserna nedan behövs 20 anrop (18 värdepapper + valutorna USD och DKK; EUR behövs inte längre). Det ryms precis i en dags kvot, om inget jämförelseindex är valt (det kostar ett anrop till).
+
+**Gjort**
+- *Orsak till Frankfurt-träffen:* Real Heart har bytt ISIN-kod. Kurskällan har kvar den gamla koden (SE0006256798) på Stockholmsnoteringen HEART.ST. En sökning på den nya koden (SE0023286836) gav därför bara Frankfurt-noteringen 7820.F i EUR, och den gamla regeln tog då första bästa träff. Ny ISIN och kortnamn HEART bekräftade via borsdata.se och zonebourse.com.
+- Samma fel gällde gamla Saab B-koden (SE0000112385, gällde före splitten 4:1 i maj 2024 enligt saab.com). Den hade kopplats till SAABY.US, ett amerikanskt depåbevis i USD med annan kurs per andel.
+- *Ny regel för val av börs* (`supabase/functions/quotes/listing.js`): hemmabörsen enligt ISIN-landskoden (SE→ST, FI→HE, DK→CO, NO→OL, US→US, DE→XETRA, GB→LSE), sedan fondlistan, sedan annan notering i hemmavalutan. Noteringar i främmande valuta väljs aldrig för de länderna – hellre "kurs saknas" än fel kurs. 5 nya tester, totalt 26, alla godkända.
+- Rättat i databasen utan API-anrop: Real Heart (ny kod) → HEART.ST. Gamla Saab-koden → ingen notering (den visas som "kurs saknas").
+- Kurstjänsten driftsatt (version 3) och kontrollerad: den startar och kräver inloggning. Supabase advisors (security): inga nya anmärkningar. Tabellerna har avsiktligt inga RLS-regler; bara servern läser dem. Lösenordskontrollen gäller inte oss, eftersom vi loggar in med Google.
+
+**Att följa upp**
+- Kontrollera 30/10 att kurser och historik kommit in för alla innehav, även fonderna.
+- Appen hanterar inte splitar eller byten av ISIN-kod. Om gamla Saab-koden (före 2024) eller gamla Real Heart-koden fortfarande räknas som innehav är transaktionsfilen inte omräknad. Det bör åtgärdas i importen.
+
 ## 2026-10-29 – Inloggning, synk och kurser i drift
 
 **Gjort**

@@ -5,4 +5,5 @@ import './portfolio.test.js';
 import './analytics.test.js';
 import './snapshot.test.js';
 import './storage.test.js';
+import './listing.test.js';
 export { runAll } from './harness.js';
