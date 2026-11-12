@@ -4,7 +4,7 @@
 import { createClient } from 'npm:@supabase/supabase-js@2.117.2';
 import { pickListing } from './listing.js';
 
-const ALLOWED_ORIGINS = ['https://ksoturunen-sudo.github.io', 'http://localhost:8080', 'http://127.0.0.1:8080'];
+const ALLOWED_ORIGINS = ['https://kompassen.ksotech.se', 'https://ksoturunen-sudo.github.io', 'http://localhost:8080', 'http://127.0.0.1:8080'];
 const EODHD = 'https://eodhd.com/api';
 const DAILY_LIMIT = Number(Deno.env.get('EODHD_DAILY_LIMIT') ?? '20');
 const HISTORY_DAYS = 400;
